@@ -1102,11 +1102,6 @@ if __name__ == '__main__':
         print "SKIP - %s" % options.skip
         print "TIMEOUT - %s" % options.timeout
 
-
-    # Set LOCATION if options.location 
-    if options.location:
-        LOCATION = options.location
-    
     # > Exit if the user isn't root.
     # Done here to allow an unprivileged user to run the script to see
     # its various options.
