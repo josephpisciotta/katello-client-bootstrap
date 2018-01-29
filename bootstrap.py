@@ -428,7 +428,7 @@ def generate_katello_facts():
     katellofacts.write('{"network.hostname-override":"%s"}\n' % (FQDN))
     katellofacts.close()
 
-    if options.location:
+    if options.location and 'foreman' in options.skip:
         print_generic("Writing LOCATION RHSM fact")
         locationfacts = open('/etc/rhsm/facts/location.facts', 'w')
         locationfacts.write('{"foreman_location":"%s"}\n' % (options.location))
