@@ -1164,6 +1164,8 @@ if __name__ == '__main__':
             create_host()
         configure_subscription_manager()
         migrate_systems(options.org, options.activationkey)
+        if 'foreman' not in options.skip:
+            delete_file('/etc/rhsm/facts/location.facts')
         if options.enablerepos:
             enable_repos()
     elif options.new_capsule:
@@ -1254,6 +1256,8 @@ if __name__ == '__main__':
             create_host()
         configure_subscription_manager()
         register_systems(options.org, options.activationkey)
+        if 'foreman' not in options.skip:
+            delete_file('/etc/rhsm/facts/location.facts')
         if options.enablerepos:
             enable_repos()
 
