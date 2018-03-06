@@ -1259,7 +1259,7 @@ if __name__ == '__main__':
         if options.enablerepos:
             enable_repos()
 
-    if options.location and 'foreman' in options.skip: 
+    if options.location and 'foreman' in options.skip:
         delete_file('/etc/rhsm/facts/location.facts')
 
     if not options.remove and not options.new_capsule:
