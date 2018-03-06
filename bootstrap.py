@@ -1164,8 +1164,6 @@ if __name__ == '__main__':
             create_host()
         configure_subscription_manager()
         migrate_systems(options.org, options.activationkey)
-        if 'foreman' not in options.skip:
-            delete_file('/etc/rhsm/facts/location.facts')
         if options.enablerepos:
             enable_repos()
     elif options.new_capsule:
@@ -1260,6 +1258,9 @@ if __name__ == '__main__':
             delete_file('/etc/rhsm/facts/location.facts')
         if options.enablerepos:
             enable_repos()
+
+    if options.location and 'foreman' in options.skip: 
+        delete_file('/etc/rhsm/facts/location.facts')
 
     if not options.remove and not options.new_capsule:
         # > IF not removing, install Katello agent, optionally update host,
